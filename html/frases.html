@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VUE CDN</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+
+<body>
+    <div id="myApp">
+        <header>
+           
+        </header>
+        <nav>
+        </nav>
+        <section>
+            <!-- aLo que yo dijite agregue a la lista -->
+            <label for="idfrase">Frase:</label>
+            <input v-model="frase" id="idfrase" type="text">
+            <p>{{frase}}</p>
+            <label for="idautor">Autor:</label>
+
+            <!--<input v-on:keypress="eventoKeyPress" v-model="autor" id="idautor" type="text">-->
+            <input v-on:keypress.enter="eventoKeyPress" v-model="autor" id="idautor" type="text">
+            <button v-on:click="agregarFrase">Agregar</button>
+            <button v-on:click="agregarFraseFinal">AgregarFinal</button>
+            <hr>
+            {{listafrases}}
+            <ul>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+            </ul>
+            <hr>
+            <!-- aplicamos desestructuracion-->
+
+            <ul>
+                <li v-for="{frase,autor} in listafrases">{{frase}}
+                    <button v-if="autor!==null">{{autor}}</button>
+                    <p v-show="autor!==null">Autor: {{autor}}</p>
+                </li>
+                <li v-for="{frase,autor} in listafrases">{{frase}}</li>
+                <li v-for="{frase,autor} in listafrases">{{frase}}</li>
+                <li v-for="{frase,autor} in listafrases">{{frase}} - {{autor}}</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+            </ul>
+
+
+        </section>
+        <aside>
+        </aside>
+        <footer>
+        </footer>
+    </div>
+    <script src="../js/appfrases.js"></script>
+</body>
+
+</html>
